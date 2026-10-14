@@ -6,7 +6,7 @@ public class LanguageSelector : MonoBehaviour
     private string _russian = "rus";
     private string _english = "eng";
 
-    private void Start()
+    private void Awake()
     {
         SetLanguage();
     }
