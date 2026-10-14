@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class ScreenshotQuestion : Question
 {
     [SerializeField] private Sprite _screenshot;
