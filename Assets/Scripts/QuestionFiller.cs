@@ -8,6 +8,7 @@ public class QuestionFiller : MonoBehaviour
     [SerializeField] private Char[] _answer;
     [SerializeField] private LanguageSelector _languageSelector;
     [SerializeField] private AnswerFiller _answerFiller;
+    [SerializeField] private AnswerBoard _answerBoard;
 
     public void Fill(Question question)
     {
@@ -19,6 +20,7 @@ public class QuestionFiller : MonoBehaviour
         string language = _languageSelector.GetCurrentLanguage();
         _answer = question.GetAnswerLetters(language);
 
+        _answerBoard.Build(_answer);
         _answerFiller.Fill(_answer);
     }
 }

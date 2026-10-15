@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 276562032}
   - component: {fileID: 276562034}
   - component: {fileID: 276562033}
-  - component: {fileID: 276562036}
   - component: {fileID: 276562035}
   m_Layer: 5
   m_Name: QuestionPanel
@@ -292,19 +291,7 @@ MonoBehaviour:
   _answer: 
   _languageSelector: {fileID: 1178508355}
   _answerFiller: {fileID: 2136911559}
---- !u!114 &276562036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276562031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77513bf2b0511e743bc3c4d8971d4b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AllScreenshotQuestions
-  _questions: []
+  _answerBoard: {fileID: 2136911560}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96157eecaf3c34d8faa61585c7a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game
-  _allScreenshotQuestions: {fileID: 276562036}
+  _allScreenshotQuestions: {fileID: 0}
   _questionFiller: {fileID: 276562035}
 --- !u!1 &619394800
 GameObject:
@@ -648,7 +635,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621347265}
-  - component: {fileID: 621347264}
   m_Layer: 0
   m_Name: "\u0418\u0433\u0440\u0430 \u0438 \u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438"
   m_TagString: Untagged
@@ -656,20 +642,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &621347264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621347263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b96157eecaf3c34d8faa61585c7a972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game
-  _allScreenshotQuestions: {fileID: 662661210}
-  _questionFiller: {fileID: 0}
 --- !u!4 &621347265
 Transform:
   m_ObjectHideFlags: 0
@@ -715,7 +687,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77513bf2b0511e743bc3c4d8971d4b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AllScreenshotQuestions
-  _questions: []
+  _questions:
+  - _russianAnswer: "\u0422\u0435\u0440\u043C\u0438\u043D\u0430\u0442\u043E\u0440"
+    _englishAnswer: Terminator
+    _screenshot: {fileID: 1283568336456259040, guid: 44c14568bae681f448c504c9b9d5848f, type: 3}
 --- !u!4 &662661211
 Transform:
   m_ObjectHideFlags: 0
@@ -1065,6 +1040,7 @@ GameObject:
   - component: {fileID: 2136911558}
   - component: {fileID: 2136911557}
   - component: {fileID: 2136911559}
+  - component: {fileID: 2136911560}
   m_Layer: 5
   m_Name: AnswerPanel
   m_TagString: Untagged
@@ -1143,6 +1119,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnswerFiller
   _answerButtonPrefab: {fileID: 8065240524534535116, guid: a32f4c8db75f636478ea810156fafb45, type: 3}
   _container: {fileID: 1327276409}
+  _answerBoard: {fileID: 2136911560}
+--- !u!114 &2136911560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136911555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86611240addd1de40832082896a24766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnswerBoard
+  _slotPrefab: {fileID: -3728521559021984810, guid: e164eefde108ce0468eefe96d9ee5e78, type: 3}
+  _slotsContainer: {fileID: 2136911556}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

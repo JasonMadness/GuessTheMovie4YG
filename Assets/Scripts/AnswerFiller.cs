@@ -5,6 +5,7 @@ public class AnswerFiller : MonoBehaviour
 {
     [SerializeField] private LetterButton _answerButtonPrefab;
     [SerializeField] private Transform _container;
+    [SerializeField] private AnswerBoard _answerBoard;
 
     private char[] _englishAlphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
     private char[] _russianAlphabet = "абвгдежзиклмнопрстуфхцчшщъыьэюя".ToCharArray();
@@ -48,35 +49,22 @@ public class AnswerFiller : MonoBehaviour
         return result;
     }
 
-    private List<LetterButton> GetRightButtons(char[] letters)
+    private List<LetterButton> GetRightButtons(char[] letters) => GenerateButtons(letters);
+    private List<LetterButton> GetWrongButtons(char[] letters) => GenerateButtons(letters);
+
+    private void OnLetterClicked(char letter, LetterButton button)
     {
-        return GenerateButtons(letters, true);
+        _answerBoard.TryPlaceLetter(letter, button);
     }
 
-    private List<LetterButton> GetWrongButtons(char[] letters)
-    {
-        return GenerateButtons(letters, false);
-    }
-
-    private List<LetterButton> GenerateButtons(char[] letters, bool rightLetter)
+    private List<LetterButton> GenerateButtons(char[] letters)
     {
         List<LetterButton> result = new();
 
         for (int i = 0; i < letters.Length; i++)
         {
-            var answerButton = Instantiate(_answerButtonPrefab);
-            answerButton.SetText(char.ToUpper(letters[i]));
-
-            if (rightLetter)
-            {
-                answerButton.SetRight();
-                answerButton.name = "RightButton";
-            }
-            else
-            {
-                answerButton.name = "WrongButton";
-            }
-
+            var answerButton = Instantiate(_answerButtonPrefab, _container);
+            answerButton.Initialize(letters[i], OnLetterClicked);
             result.Add(answerButton);
         }
 
